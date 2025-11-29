@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Física na BNCC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Remove o sublinhado dos links que envolvem os cards */
+        .destaque-card-link {
+            text-decoration: none; 
+            color: inherit; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Carrossel -->
+    <div class="carousel-container">
+        <!-- As imagens são definidas no CSS através do nth-child -->
+        <div class="carousel-slide active"></div>
+        <div class="carousel-slide"></div>
+        <div class="carousel-slide"></div>
+        
+        <div class="carousel-controls">
+            <div class="carousel-dot active" data-slide="0"></div>
+            <div class="carousel-dot" data-slide="1"></div>
+            <div class="carousel-dot" data-slide="2"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 class="title">EDUCAÇÃO FÍSICA NA BNCC</h1>
+        <h2 class="subtitle">Base Nacional Comum Curricular</h2>
+        
+        <!-- Botões Principais -->
+        <div class="button-container">
+            <a href="anos-iniciais.html" class="square-button">
+                <div class="button-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <span class="button-text">Ensino Fundamental Anos Iniciais</span>
+            </a>
+            <a href="anos-finais.html" class="square-button">
+                <div class="button-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <span class="button-text">Ensino Fundamental Anos Finais</span>
+            </a>
+        </div>
+
+        <!-- Área de Destaques (Comunidade e Projeto) -->
+        <div class="destaques-container">
+            
+            <!-- Card Projeto (AGORA VEM PRIMEIRO) -->
+            <a href="projeto.html" class="destaque-card-link">
+                <div class="destaque-card">
+                    <div class="destaque-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Projeto</h3>
+                    <p>Conheça os objetivos do site</p>
+                </div>
+            </a>
+
+            <!-- Card Comunidade (AGORA VEM SEGUNDO) -->
+            <a href="comunidade.html" class="destaque-card-link">
+                <div class="destaque-card">
+                    <div class="destaque-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidade</h3>
+                    <p>Espaço para troca de experiências</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BNCC Educação Física</h4>
+                <p>Portal dedicado à implementação da Base Nacional Comum Curricular no componente de Educação Física</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="anos-iniciais.html">Anos Iniciais</a></li>
+                    <li><a href="anos-finais.html">Anos Finais</a></li>
+                    <li><a href="recursos.html">Recursos Digitais</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>francilene.santos.vieira2021@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/francilene.santos.988" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/fran_vieirasantos" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 BNCC Educação Física. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

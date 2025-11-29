@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativos Educativos - BNCC Educação Física</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a.active {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* Conteúdo da Página */
+        .pagina-conteudo {
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-pagina {
+            font-size: 2.5rem;
+            color: #64ffda;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .conteudo-texto {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cards de informação */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .info-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-card p {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            color: #ccd6f6;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .info-card li:before {
+            content: "•";
+            color: #64ffda;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Cards de Aplicativos */
+        .app-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.2);
+        }
+
+        .app-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #64ffda;
+            overflow: hidden;
+        }
+
+        .app-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-icon {
+            font-size: 3rem;
+            color: #64ffda;
+        }
+
+        .app-content {
+            flex: 1;
+        }
+
+        .app-title {
+            color: #64ffda;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .app-title:hover {
+            color: #4fd3c4;
+        }
+
+        .app-description {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            border: 1px solid #64ffda;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .app-link:hover {
+            background: #64ffda;
+            color: #0a192f;
+        }
+
+        /* Botões Quadrados */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .square-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .square-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 3.5rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .button-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e6f1ff;
+            text-align: center;
+        }
+
+        /* Container do botão voltar */
+        .voltar-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .voltar-btn {
+            margin: 0 auto !important;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .titulo-pagina {
+                font-size: 2rem;
+            }
+
+            .app-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .app-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .app-icon {
+                font-size: 2.5rem;
+            }
+
+            .square-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .button-icon {
+                font-size: 3rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="pagina-conteudo">
+        <div class="container">
+            <h1 class="titulo-pagina">Aplicativos Educativos</h1>
+            
+            <div class="conteudo-texto">
+                <div class="info-card">
+                    <p>Dois aplicativos educativos que podem ser utilizados para complementar os estudos na área de Educação Física, além de um jogo educativo divertido que pode ser indicado aos estudantes.</p>
+                </div>
+
+                <!-- Cards dos Aplicativos -->
+                <div class="app-cards">
+                    <!-- App 1: Prof Educação Fisica Simulados -->
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="simulado.png" alt="Prof Educação Física Simulados">
+                        </div>
+                        <div class="app-content">
+                            <a href="https://play.google.com/store/apps/details?id=voeapp.edfisica" class="app-title" target="_blank">
+                                Prof Educação Física Simulados
+                            </a>
+                            <p class="app-description">
+                                App voltado ao estudo de questões de concursos, abrangendo não apenas a área de Educação Física, mas também diversas outras áreas do conhecimento.: 
+                            </p>
+                            <a href="https://play.google.com/store/apps/details?id=voeapp.edfisica" class="app-link" target="_blank">
+                                <i class="fab fa-google-play"></i>
+                                Baixar na Play Store
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- App 2: BNCC -->
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="bncc.png" alt="BNCC - Base Nacional Comum Curricular">
+                        </div>
+                        <div class="app-content">
+                            <a href="https://play.google.com/store/apps/details?id=com.rafaelsieber.bncc" class="app-title" target="_blank">
+                                BNCC - Base Nacional Comum Curricular
+                            </a>
+                            <p class="app-description">
+                                App da BNCC que reúne todo o conteúdo do documento, abrangendo todas as áreas do conhecimento.
+                            </p>
+                            <a href="https://play.google.com/store/apps/details?id=com.rafaelsieber.bncc" class="app-link" target="_blank">
+                                <i class="fab fa-google-play"></i>
+                                Baixar na Play Store
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- App 3: Aventura do Corpo Humano -->
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="unnamed.png" alt="Aventura do Corpo Humano">
+                        </div>
+                        <div class="app-content">
+                            <a href="https://play.google.com/store/apps/details?id=com.didactoons.bodyquest.free" class="app-title" target="_blank">
+                                Aventura do Corpo Humano
+                            </a>
+                            <p class="app-description">
+                               App divertido, indicado para crianças, que permite estudar de forma lúdica e educacional. Recomendado para uso com os estudantes.
+                            </p>
+                            <a href="https://play.google.com/store/apps/details?id=com.didactoons.bodyquest.free" class="app-link" target="_blank">
+                                <i class="fab fa-google-play"></i>
+                                Baixar na Play Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <div class="voltar-container">
+                <a href="recursos.html" class="square-button voltar-btn">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <span class="button-text">Voltar aos Recursos</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu toggle para mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Fecha o menu ao clicar em um link (mobile)
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Fecha o menu ao redimensionar a janela para desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento Didático - BNCC Educação Física</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para a seção dos colegas */
+        .colegas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .colega-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid #64ffda;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .colega-card:hover {
+            transform: translateY(-5px);
+            background: rgba(100, 255, 218, 0.1);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+        }
+
+        /* NOVO: Estilo para ícones de imagem */
+        .colega-icon-img {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px auto;
+            object-fit: contain;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .colega-card:hover .colega-icon-img {
+            transform: scale(1.1);
+        }
+
+        .colega-card h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .colega-card p {
+            font-size: 0.95rem;
+            color: #ccd6f6;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .destaque-box {
+            background-color: rgba(10, 25, 47, 0.8);
+            border: 2px dashed #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .destaque-box h3 {
+            text-align: center;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .imagem-topo {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #64ffda;
+            margin-bottom: 30px;
+        }
+
+        /* NOVO: Espaço para imagem no começo */
+        .imagem-cabecalho {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #64ffda;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos para lista personalizada igual à imagem */
+        .lista-planejamento {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .lista-planejamento li {
+            color: #ccd6f6;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            padding-left: 0;
+        }
+
+        .numero-titulo {
+            color: #64ffda;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .lista-planejamento ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .lista-planejamento ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        .lista-planejamento ul li:before {
+            content: "✓";
+            color: #64ffda;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .sublista-bolinha {
+            list-style-type: disc;
+            padding-left: 40px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .sublista-bolinha li {
+            color: #ccd6f6;
+            margin-bottom: 5px;
+        }
+
+        .sublista-bolinha em {
+            color: #8892b0;
+            font-style: italic;
+        }
+
+        /* Responsividade para os ícones */
+        @media (max-width: 768px) {
+            .colega-icon-img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .colegas-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .imagem-cabecalho {
+                max-height: 200px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html" class="active">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="pagina-conteudo">
+        <div class="container">
+            <h1 class="titulo-pagina">Planejamento Didático</h1>
+            
+            <!-- NOVO: Imagem de Cabeçalho no Começo -->
+            <img src="Planejamento.jpg" alt="Planejamento Didático" class="imagem-cabecalho" onerror="this.style.display='none'">
+
+            <!-- Imagem de Topo (mantida) -->
+            <img src="imagens/planejamento.jpg" alt="Planejamento Didático" class="imagem-topo" onerror="this.style.display='none'">
+
+            <div class="conteudo-texto">
+                <div class="info-card">
+                    <h2>O Que é o Planejamento Didático?</h2>
+                    <p>O Planejamento Didático é um processo fundamental para a organização do trabalho do professor. Ele orienta o que será ensinado, como, por que e para quê, assegurando que as ações pedagógicas tenham um propósito claro e estejam alinhadas às necessidades dos estudantes.</p>
+
+                    <blockquote>
+                        "O planejamento organiza e dá direção ao trabalho docente, garantindo intencionalidade pedagógica" (Libâneo, 1994).
+                    </blockquote>
+
+                    <p>É muito mais do que um simples "roteiro de aula", é um mapa que orienta o trabalho docente, estabelecendo objetivos, conteúdos, metodologias, recursos e formas de avaliação de maneira coerente e intencional.</p>
+
+                    <blockquote>
+                        Darido reforça que "a prática pedagógica do professor de Educação Física depende de um planejamento que articule conteúdos, métodos e objetivos" (Darido, 2005).
+                    </blockquote>
+
+                    <h3>Importância do Planejamento</h3>
+                    <ul>
+                        <li>
+                            <strong>Garante Direção e Foco:</strong> Define claramente onde se quer chegar (objetivos), evitando que as aulas se tornem desconexas ou sem rumo.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        Saviani ressalta que "a ação educativa exige direção consciente, pois não se realiza por improviso" (Saviani, 1983).
+                    </blockquote>
+
+                    <ul>
+                        <li>
+                            <strong>Promove a Organização:</strong> Permite que o professor selecione e estruture os conteúdos de forma lógica e sequencial, respeitando o tempo disponível.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        "A Educação Física requer a organização pedagógica das práticas corporais para que tenham significado educativo" (Coletivo de Autores, 1992).
+                    </blockquote>
+
+                    <ul>
+                        <li>
+                            <strong>Facilita a Avaliação:</strong> Ao definir os objetivos desde o início, fica claro o que deve ser avaliado e como.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        Libâneo explica que "a avaliação é parte integrante do processo de ensino e depende dos objetivos formulados previamente" (Libâneo, 1994), evidenciando que avaliar não é apenas medir resultados, mas acompanhar e interpretar a aprendizagem.
+                    </blockquote>
+
+                    <ul>
+                        <li>
+                            <strong>Aumenta a Segurança do Professor:</strong> O docente se sente mais preparado e confiante para mediar o processo de aprendizagem.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        Como afirma João Batista Freire, "o corpo em ação é também pensamento; por isso, a intervenção pedagógica exige intencionalidade" (Freire, 2003), reforçando que a ação docente precisa ser consciente e orientada.
+                    </blockquote>
+
+                    <ul>
+                        <li>
+                            <strong>Atende às Necessidades dos Estudantes:</strong> Um bom planejamento considera a realidade, os conhecimentos prévios e as características da turma.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        Gallahue e Ozmun destacam que "o desenvolvimento motor segue um processo contínuo e sequencial, e a intervenção pedagógica deve respeitar essas etapas" (Gallahue & Ozmun, 2013). Assim, o professor precisa planejar atividades que dialoguem com o nível de desenvolvimento, ritmos e características individuais dos estudantes.
+                    </blockquote>
+
+                    <ul>
+                        <li>
+                            <strong>Garante uma Coerência com Documentos Orientadores:</strong> Como a Base Nacional Comum Curricular (BNCC) e o Projeto Político Pedagógico (PPP) da escola.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h2>Elementos de um Planejamento</h2>
+                    <p>Embora existam diversos modelos, um planejamento geralmente contém os seguintes elementos:</p>
+                    
+                    <ul class="lista-planejamento">
+                        <li>
+                            <span class="numero-titulo">1. <strong>Identificação:</strong></span>
+                            <ul>
+                                <li>Disciplina, turma, ano/série, professor, carga horária, período, temática.</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">2. <strong>Conteúdos:</strong></span>
+                            <ul>
+                                <li>"O que será ensinado?"</li>
+                                <li>São os conhecimentos, habilidades, atitudes e valores que serão trabalhados. Podem ser conceituais (fatos, conceitos, princípios), procedimentais (habilidades, técnicas) e atitudinais (valores, normas, atitudes).</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">3. <strong>Objetivos de Aprendizagem:</strong></span>
+                            <ul>
+                                <li>"O que eu quero que os estudantes sejam capazes de saber, saber fazer e ser ao final desta unidade/aula?"</li>
+                                <li>Devem ser claros, mensuráveis e alcançáveis. Dividem-se em:</li>
+                            </ul>
+                            <ul class="sublista-bolinha">
+                                <li><em>Objetivos Gerais:</em> Metas mais amplas e de longo prazo.</li>
+                                <li><em>Objetivos Específicos:</em> Comportamentos observáveis e concretos que os alunos devem demonstrar.</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">4. <strong>Metodologias:</strong></span>
+                            <ul>
+                                <li>"Como vou ensinar?"</li>
+                                <li>É a parte fundamental do planejamento. Descreve as estratégias e atividades que o professor e os estudantes irão realizar. A escolha da metodologia deve estar alinhada aos objetivos e ao perfil da turma.</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">5. <strong>Cronograma:</strong></span>
+                            <ul>
+                                <li>Distribuição temporal das atividades, definindo quanto tempo será dedicado a cada atividade.</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">6. <strong>Recursos Didáticos:</strong></span>
+                            <ul>
+                                <li>"Com o que vou ensinar?"</li>
+                                <li>São os materiais e ferramentas que auxiliarão no processo: livros, data show, quadros, jogos, laboratório, etc.</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">7. <strong>Avaliação:</strong></span>
+                            <ul>
+                                <li>"Como vou saber se os estudantes aprenderam?"</li>
+                                <li>Define os instrumentos e critérios para verificar se os objetivos foram alcançados. A avaliação deve ser processual e formativa, ou seja, ocorrer durante todo o processo para fornecer feedback e permitir ajustes, não apenas no final.</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <span class="numero-titulo">8. <strong>Referências Bibliográficas:</strong></span>
+                            <ul>
+                                <li>Fontes (livros, artigos, sites) que embasam o planejamento e que podem ser usadas por professores e estudantes.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <p>O planejamento é um instrumento flexível, que pode e deve ser ajustado conforme as necessidades da turma. Ele orienta, mas não impede a criatividade, a intervenção pedagógica ou o acompanhamento sensível do professor.</p>
+                </div>
+
+                <!-- QUADRO DESTAQUE DOS COLEGAS -->
+                <div class="destaque-box">
+                    <h3>🌟 Materiais Complementares de Excelência</h3>
+                    <p>A seguir você encontrará os sites de dois colegas da faculdade que desenvolveram materiais sobre planejamento didático de maneira mais elaborada e robusta. Eles não apenas cumprem a tarefa, mas verdadeiramente dominam o tema com muita profundidade.</p>
+                    <p>Cada tópico é explicado com clareza, precisão e riqueza de exemplos, tornando os conteúdos mais acessíveis e práticos. Vale cada clique conhecer esses trabalhos que mostram como o Planejamento Didático pode ser abordado com excelência acadêmica e aplicabilidade prática.</p>
+                    <p><strong>Basta clicar nos cards abaixo para ser direcionado a esses materiais incríveis!</strong></p>
+
+                    <div class="colegas-grid">
+                        
+                        <!-- Colega 1: Arthur Paloscki -->
+                        <div class="colega-card">
+                            <img src="Trello.jpg" alt="Trello" class="colega-icon-img">
+                            <h4>Planejamento Didático no recurso Trello</h4>
+                            <p>
+                                O recurso educacional “Planejamento Didático no Trello”, desenvolvido na plataforma Trello, integra a pesquisa <strong>“O Uso das Tecnologias Educacionais na Educação Física Escolar: Um Protótipo de Planejamento Didático”</strong>, realizada no âmbito do Trabalho de Conclusão de Curso de <strong>Arthur Paloscki</strong>, sob orientação da <strong>Profa. Dra. Rosana Amaro</strong>, da Faculdade de Educação Física da Universidade de Brasília (<strong>FEF/UnB</strong>). A investigação teve como finalidade conceber um protótipo que apoiasse a organização, visualização e sistematização do planejamento de aulas, oferecendo aos estudantes da formação inicial em Educação Física uma ferramenta capaz de tornar esse processo mais dinâmico, estruturado e acessível. O material, identificado e referenciado no repositório institucional da UnB.
+                            </p>
+                            <a href="https://trello.com/c/jJrBkidO/1-apresenta%C3%A7%C3%A3o-da-proposta" target="_blank" class="btn-recurso">Acessar Trello</a>
+                            <a href="https://bdm.unb.br/handle/10483/42475" target="_blank" class="btn-recurso" style="margin-left: 10px;">Acessar TCC</a>
+                            <p style="color: #8892b0; font-size: 0.8rem; margin-top: 15px;">
+                                *recursos criados exclusivamente com finalidade pedagógica
+                            </p>
+                        </div>
+
+                        <!-- Colega 2: Maria Aparecida -->
+                        <div class="colega-card">
+                            <img src="Notion.jpg" alt="Notion" class="colega-icon-img">
+                            <h4>Material Educacional Digital (MED)</h4>
+                            <p>
+                                Este Material Educacional Digital (MED) foi desenvolvido na plataforma Notion, integra a pesquisa intitulada <strong>"A percepção dos discentes de Educação Física sobre planejamento didático com base em um Material Educacional Digital (MED) para a prática pedagógica"</strong>. Trata-se de um produto educacional elaborado no âmbito do Trabalho de Conclusão de Curso de <strong>Maria Aparecida Silva Lima</strong>, sob orientação da <strong>Profa. Dra. Rosana Amaro</strong>, da <strong>FEF/UnB</strong>. O MED foi concebido para oferecer suporte aos estudantes de Educação Física da Universidade de Brasília no processo de elaboração de planejamentos de aula, reconhecendo que a qualidade desse planejamento constitui um elemento estruturante da prática pedagógica. A proposta utiliza os recursos organizacionais do Notion para favorecer a sistematização de objetivos, metodologias, avaliações e conteúdos, buscando contribuir para o desenvolvimento de competências docentes no contexto da formação inicial.
+                            </p>
+                            <a href="https://calico-pasta-a78.notion.site/Planejamento-Did-tico-4ef6868a3535490f8e5aeef1a9f95c93" target="_blank" class="btn-recurso">Acessar Notion</a>
+                            <a href="https://drive.google.com/file/d/11YA8FvJMG6WmQD3d6dw7naCouvNp5km6/view?usp=drive_link" target="_blank" class="btn-recurso" style="margin-left: 10px;">Acessar TCC</a>
+                            <p style="color: #8892b0; font-size: 0.8rem; margin-top: 15px;">
+                                *recursos criados exclusivamente com finalidade pedagógica
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="voltar-container">
+                    <a href="recursos.html" class="square-button voltar-btn">
+                        <div class="button-icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <span class="button-text">Voltar aos Recursos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

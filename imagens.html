@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Imagens - BNCC Educação Física</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a.active {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* Conteúdo da Página */
+        .pagina-conteudo {
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-pagina {
+            font-size: 2.5rem;
+            color: #64ffda;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .conteudo-texto {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Cards de informação */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .info-card h3 {
+            color: #64ffda;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .info-card p {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Grid de Imagens */
+        .imagens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .imagem-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .imagem-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.2);
+        }
+
+        .imagem-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #64ffda;
+            margin-bottom: 15px;
+        }
+
+        .imagem-card h4 {
+            color: #64ffda;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .imagem-card p {
+            color: #ccd6f6;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .btn-imagem {
+            display: inline-block;
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            border: 1px solid #64ffda;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-imagem:hover {
+            background: #64ffda;
+            color: #0a192f;
+        }
+
+        /* Botões Quadrados */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .square-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .square-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 3.5rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .button-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e6f1ff;
+            text-align: center;
+        }
+
+        /* Container do botão voltar */
+        .voltar-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .voltar-btn {
+            margin: 0 auto !important;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .titulo-pagina {
+                font-size: 2rem;
+            }
+
+            .imagens-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .imagem-card {
+                padding: 15px;
+            }
+
+            .imagem-preview {
+                height: 180px;
+            }
+
+            .square-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .button-icon {
+                font-size: 3rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html" class="active">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="pagina-conteudo">
+        <div class="container">
+            <h1 class="titulo-pagina">Banco de Imagens</h1>
+            
+            <div class="conteudo-texto">
+                <div class="info-card">
+                    <h2>Galeria de Imagens para Educação Física</h2>
+                    <p>Coleção de imagens utilizadas no site. </p>
+                    <h3>Imagens por Ano Escolar</h3>
+                    
+                    <div class="imagens-grid">
+                        <!-- 1º Ano -->
+                        <div class="imagem-card">
+                            <img src="1ano.jpg" alt="1º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=1%C2%BA+Ano'">
+                            <h4>1º Ano do Fundamental</h4>
+                            <a href="1ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 2º Ano -->
+                        <div class="imagem-card">
+                            <img src="2ano.jpg" alt="2º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=2%C2%BA+Ano'">
+                            <h4>2º Ano do Fundamental</h4>
+                            <a href="2ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 3º Ano -->
+                        <div class="imagem-card">
+                            <img src="3ano.jpg" alt="3º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=3%C2%BA+Ano'">
+                            <h4>3º Ano do Fundamental</h4>
+                            <a href="3ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 4º Ano -->
+                        <div class="imagem-card">
+                            <img src="4ano.jpg" alt="4º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=4%C2%BA+Ano'">
+                            <h4>4º Ano do Fundamental</h4>
+                            <a href="4ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 5º Ano -->
+                        <div class="imagem-card">
+                            <img src="5ano.jpg" alt="5º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=5%C2%BA+Ano'">
+                            <h4>5º Ano do Fundamental</h4>
+                            <a href="5ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 6º Ano -->
+                        <div class="imagem-card">
+                            <img src="6ano.jpg" alt="6º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=6%C2%BA+Ano'">
+                            <h4>6º Ano do Fundamental</h4>
+                            <a href="6ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 7º Ano -->
+                        <div class="imagem-card">
+                            <img src="7ano.jpg" alt="7º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=7%C2%BA+Ano'">
+                            <h4>7º Ano do Fundamental</h4>
+                            <a href="7ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 8º Ano -->
+                        <div class="imagem-card">
+                            <img src="8ano.jpg" alt="8º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=8%C2%BA+Ano'">
+                            <h4>8º Ano do Fundamental</h4>
+                            <a href="8ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- 9º Ano -->
+                        <div class="imagem-card">
+                            <img src="9ano.jpg" alt="9º Ano - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=9%C2%BA+Ano'">
+                            <h4>9º Ano do Fundamental</h4>
+                            <a href="9ano.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+                    </div>
+
+                    <h3>  Gerais</h3>
+                    
+                    <div class="imagens-grid" style="gap: 30px;">
+                        <!-- Apresentação -->
+                        <div class="imagem-card">
+                            <img src="Apresentação.jpg" alt="Apresentação - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=Apresenta%C3%A7%C3%A3o'">
+                            <h4>Projeto</h4>
+                            <a href="Apresentação.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- Avaliação -->
+                        <div class="imagem-card">
+                            <img src="Avaliação.jpg" alt="Avaliação - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=Avalia%C3%A7%C3%A3o'">
+                            <h4>Avaliação</h4>
+                            <a href="Avaliação.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+
+                        <!-- Planejamento -->
+                        <div class="imagem-card">
+                            <img src="Planejamento.jpg" alt="Planejamento - Educação Física" class="imagem-preview" onerror="this.src='https://via.placeholder.com/300x200/0a192f/64ffda?text=Planejamento'">
+                            <h4>Planejamento</h4>
+                            <a href="Planejamento.jpg" download class="btn-imagem">Baixar Imagem</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="voltar-container">
+                    <a href="recursos.html" class="square-button voltar-btn">
+                        <div class="button-icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <span class="button-text">Voltar aos Recursos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu toggle para mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Fecha o menu ao clicar em um link (mobile)
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Fecha o menu ao redimensionar a janela para desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

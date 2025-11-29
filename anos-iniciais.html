@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anos Iniciais - BNCC Educação Física (Completo)</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        *img{
+        size: 200px
+}
+
+        body {
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a.active {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* Esta classe é importante. Ela diferencia
+           esta página da sua "index.html".
+        */
+        .pagina-iniciais .main-content {
+            padding-top: 150px; /* Espaço para o header fixo e o título */
+            padding-bottom: 50px;
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .pagina-iniciais .title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #e6f1ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .pagina-iniciais .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 60px;
+            color: #64ffda;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Botões Quadrados (Base para o botão Voltar) */
+        .square-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .square-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 3.5rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .button-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e6f1ff;
+            text-align: center;
+        }
+
+        /* Botões dos Anos */
+        .anos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .ano-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 12px;
+            padding: 25px 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .ano-button:hover {
+            background-color: rgba(100, 255, 218, 0.15);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .ano-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+
+        .ano-texto {
+            font-size: 1rem;
+            color: #e6f1ff;
+            font-weight: 500;
+        }
+
+        /* Container do botão voltar */
+        .voltar-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Ajuste de tamanho específico para o botão "Voltar" */
+        .voltar-btn {
+            margin: 0 auto !important;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+        }
+
+        .voltar-btn .button-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .voltar-btn .button-text {
+            font-size: 1.1rem;
+        }
+
+        /* ============================
+        == Pop-up dos Anos 
+        ============================ */
+        .conteudo-ano {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: rgba(10, 25, 47, 0.98);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            border: 2px solid #64ffda;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none; /* COMEÇA ESCONDIDO */
+        }
+
+        .conteudo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        .conteudo-header h3 {
+            color: #64ffda;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .fechar-conteudo {
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid #64ffda;
+            color: #64ffda;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .fechar-conteudo:hover {
+            background: #64ffda;
+            color: #0a192f;
+            transform: scale(1.1);
+        }
+
+        .conteudo-ano p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ccd6f6;
+            font-size: 1.1rem;
+        }
+
+        .conteudo-ano ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .conteudo-ano li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            color: #ccd6f6;
+            line-height: 1.5;
+        }
+
+        .conteudo-ano li:before {
+            content: "▶";
+            color: #64ffda;
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* ============================
+        == ESTILOS DO LIGHTBOX (MODAL DE IMAGEM) ==
+        ============================ */
+        .lightbox {
+            position: fixed;
+            z-index: 2000; /* Fica em cima de tudo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none; /* Começa escondido */
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            border: 3px solid #64ffda;
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        /* ============================
+        == FIM DOS ESTILOS LIGHTBOX ==
+        ============================ */
+
+
+        /* Container (para centralizar o conteúdo) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card de Informação (para o texto principal) */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: left; /* Garante que o texto no card não seja centralizado */
+        }
+
+        .info-card h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: left; /* Título do card à esquerda */
+        }
+
+        .info-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-card p {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo para Citações (blockquote) */
+        .info-card blockquote {
+            background: rgba(100, 255, 218, 0.05);
+            border-left: 4px solid #64ffda;
+            padding: 15px;
+            margin: 25px 0;
+            color: #ccd6f6;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Estilo para a Caixa de Informação (Organização) */
+        .info-box {
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .info-box .info-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* =================================
+        == ESTILOS PARA IMAGENS ==
+        =================================
+        */
+        
+        /* Grid de Recursos */
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px auto; /* Centraliza o grid */
+            padding: 0 20px;
+            max-width: 900px; /* Alinha com os botões dos anos */
+            text-align: left;
+        }
+
+        /* Card de Recurso (para as imagens) */
+        .recurso-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-align: center; /* Centralizar o título e a imagem */
+        }
+
+        .recurso-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.2);
+        }
+        
+        .recurso-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Estilo da Imagem (estado normal) */
+        .recurso-card img {
+            width: 100%; /* Faz a imagem ser responsiva */
+            height: auto;
+            border-radius: 8px; /* Borda arredondada para a imagem */
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            opacity: 0.85;
+            transition: all 0.3s ease; /* Transição suave para a ampliação */
+            cursor: pointer; /* Adiciona cursor de clique */
+        }
+
+        .recurso-card a:hover img {
+            opacity: 1;
+        }
+
+        /* CSS para imagem ampliada (efeito de zoom) */
+        .recurso-card img.ampliada {
+            transform: scale(1.1); /* Aumenta a imagem em 10% */
+            z-index: 10;           /* Garante que fique acima de outros elementos */
+            position: relative;    /* Necessário para o z-index funcionar */
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.4); /* Sombra para destacar */
+            border-color: #64ffda; /* Borda destacada */
+        }
+        /* ===============================
+        == FIM DOS ESTILOS ==
+        =============================== */
+
+
+        /* Menu Hamburguer (Mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+
+            .pagina-iniciais .main-content {
+                padding-top: 100px;
+            }
+
+            .pagina-iniciais .title {
+                font-size: 2.2rem;
+            }
+
+            .pagina-iniciais .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .square-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .button-icon {
+                font-size: 3rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+
+            .anos-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .ano-button {
+                padding: 20px 10px;
+            }
+
+            .ano-numero {
+                font-size: 2rem;
+            }
+
+            .conteudo-ano {
+                width: 95%;
+                padding: 20px;
+                top: 50%;
+            }
+            
+            .conteudo-header h3 {
+                font-size: 1.4rem;
+            }
+            
+            .conteudo-ano p {
+                font-size: 1rem;
+            }
+            
+            .fechar-conteudo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            /* --- Ajuste Mobile para o novo grid --- */
+            .recursos-grid {
+                padding: 0; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .anos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body class="pagina-iniciais">
+    
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1 class="title">ANOS INICIAIS</h1>
+        <h2 class="subtitle">1º ao 5º Ano - Ensino Fundamental</h2>
+        
+        <div class="container">
+            
+            <div class="info-card">
+                <h2>Anos Iniciais do Ensino Fundamental</h2>
+                
+                <blockquote>
+                    "Os alunos do Ensino Fundamental – Anos Iniciais possuem modos próprios de vida e múltiplas experiências pessoais e sociais, o que torna necessário reconhecer a existência de infâncias no plural e, consequentemente, a singularidade de qualquer processo escolar e sua interdependência com as características da comunidade local." (BNCC, pág. 224)
+                </blockquote>
+
+                <p>
+                    A Educação Física nos Anos Iniciais do Ensino Fundamental tem como principal objetivo ampliar o repertório de movimentos das crianças e promover experiências corporais diversificadas, lúdicas e significativas.
+                </p>
+
+                <blockquote>
+                    Como destaca João Batista Freire, "brincar é a atividade central da infância e fundamental para a constituição da criança" (Freire, 2003). Isso reforça o caráter lúdico e essencial do movimento nessa etapa.
+                </blockquote>
+
+                <p>
+                    Nessa fase, o corpo é elemento central para o aprendizado e a BNCC destaca a importância do brincar, da exploração e das interações sociais como estratégias essenciais para o desenvolvimento global do estudante.
+                </p>
+
+                <blockquote>
+                    De acordo com Gallahue, "as habilidades motoras fundamentais constituem a base para aquisições motoras mais complexas ao longo da vida" (Gallahue, 2013), o que se alinha diretamente às práticas corporais propostas para esta etapa.
+                </blockquote>
+
+                <p>
+                    A partir das práticas corporais, como jogos, brincadeiras, danças, esportes, lutas e ginásticas, as crianças desenvolvem habilidades motoras básicas, incluindo correr, saltar, arremessar, equilibrar, rolar e manipular objetos. Mais do que dominar movimentos, a Educação Física nos Anos Iniciais busca favorecer a descoberta do próprio corpo, o controle motor, a coordenação global e fina, além da expressão e comunicação por meio do movimento.
+                </p>
+
+                <p>
+                    Outro aspecto fundamental nessa etapa é a formação de atitudes e valores, como cooperação, respeito às regras, cuidado com o outro, resolução de conflitos e participação coletiva. Por meio das atividades propostas, as crianças aprendem sobre convivência, responsabilidade, inclusão e diversidade, entendendo que todas as pessoas têm capacidades diferentes e que é possível jogar, brincar e aprender juntas.
+                </p>
+
+                <p>
+                    A BNCC organiza os conteúdos da Educação Física em unidades temáticas, como Jogos e Brincadeiras, Esportes, Danças, Lutas e Ginásticas. Embora as crianças iniciem esse contato de forma adaptada e lúdica, elas passam a reconhecer elementos das regras, a importância da organização do espaço e começam a construir noções de estratégia, ritmo e coordenação. O principal foco não é o desempenho, mas sim a vivência, a experimentação e a ampliação das possibilidades de movimento.
+                </p>
+
+                <p>
+                    Outro ponto essencial é a relação com a cultura corporal. Nos Anos Iniciais, as crianças são incentivadas a compreender que as práticas corporais fazem parte da história e da cultura de diferentes grupos sociais. Isso inclui brincadeiras populares, danças regionais, jogos tradicionais e manifestações corporais presentes em suas comunidades. Assim, a Educação Física contribui tanto para o desenvolvimento motor quanto para o reconhecimento das identidades culturais.
+                </p>
+
+                <p>
+                    Ao final dos Anos Iniciais, espera-se que as crianças tenham ampliado suas habilidades motoras, compreendam e respeitem regras simples, participem de atividades de forma cooperativa, experimentem diferentes práticas corporais e reconheçam o movimento como forma de expressão, saúde, prazer e interação social. 
+                </p>
+
+                <blockquote>
+                    Essa perspectiva dialoga com a concepção de Libâneo (1994), que defende que "o planejamento e as práticas pedagógicas devem promover o desenvolvimento integral e a formação consciente dos estudantes".
+                </blockquote>
+
+                <p>
+                    Dessa forma, a Educação Física nessa etapa desempenha um papel essencial na formação integral da criança, favorecendo não apenas o desenvolvimento físico, mas também emocional, social e cultural.
+                </p>
+
+                <blockquote>
+                    "Diante do compromisso com a formação estética, sensível e ética, a Educação Física, aliada aos demais componentes curriculares, assume compromisso claro com a qualificação para a leitura, a produção e a vivência das práticas corporais. Ao mesmo tempo, pode colaborar com os processos de letramento e alfabetização dos alunos, ao criar oportunidades e contextos para ler e produzir textos que focalizem as distintas experiências e vivências nas práticas corporais tematizadas." (BNCC, pág. 224)
+                </blockquote>
+
+                <div class="info-box">
+                    <h3 class="info-title">Organização das Habilidades</h3>
+                    <p class="text-content" style="text-align: center; margin-bottom: 0;">
+                        As habilidades de Educação Física para o Ensino Fundamental – Anos Iniciais, conforme estabelecido pela BNCC estão organizados em dois blocos: <strong>1° e 2° anos; 3° a 5° anos</strong>.
+                    </p>
+                    <p class="text-content" style="text-align: center; margin-bottom: 0;">
+                        Essas habilidades são estruturadas a partir dos objetos de conhecimento definidos em unidades temáticas, que abrangem os diferentes componentes da cultura corporal do movimento.
+                    </p>
+                </div>
+            </div> 
+            
+            <h2 class="subtitle" style="margin-top: 60px; margin-bottom: 40px;">Recursos Visuais</h2>
+            <div class="recursos-grid">
+                
+                <div class="recurso-card">
+                    <h3>Unidades Temáticas</h3>
+                    <a href="unidadetematicaINICIAL.jpg" target="_blank">
+                        <img src="unidadetematicaINICIAL.jpg" alt="Unidades Temáticas - Anos Iniciais">
+                    </a>
+                </div>
+                
+                <div class="recurso-card">
+                    <h3>Habilidades 1º e 2º Ano</h3>
+                    <a href="AnosIniciais1e2.jpg" target="_blank">
+                        <img src="AnosIniciais1e2.jpg" alt="Habilidades 1º e 2º Ano">
+                    </a>
+                </div>
+
+                <div class="recurso-card">
+                    <h3>Habilidades 3º ao 5º Ano</h3>
+                    <a href="AnosIniciais3e5.jpg" target="_blank">
+                        <img src="AnosIniciais3e5.jpg" alt="Habilidades 3º ao 5º Ano">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="anos-container" id="botoes-anos">
+                <a href="1ano.html" class="ano-button">
+                    <div class="ano-numero">1º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                
+                <a href="2ano.html" class="ano-button">
+                    <div class="ano-numero">2º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                <a href="3ano.html" class="ano-button">
+                    <div class="ano-numero">3º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                <a href="4ano.html" class="ano-button">
+                    <div class="ano-numero">4º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                <a href="5ano.html" class="ano-button">
+                    <div class="ano-numero">5º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+            </div>
+
+            <div class="voltar-container">
+                <a href="index.html" class="square-button voltar-btn">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <span class="button-text">Voltar</span>
+                </a>
+            </div>
+
+        </div> 
+    </div> 
+
+    <div id="2ano" class="conteudo-ano">
+        <div class="conteudo-header">
+            <h3>2º Ano - Educação Física</h3>
+            <button class="fechar-conteudo" onclick="fecharConteudo()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <p>Ampliação do repertório motor com introdução de elementos mais complexos nas atividades.</p>
+        <ul>
+            <li>Jogos com regras simples</li>
+            <li>Atividades rítmicas e expressivas</li>
+            <li>Desenvolvimento do equilíbrio e agilidade</li>
+            <li>Brincadeiras de diferentes culturas</li>
+            <li>Coordenação motora fina e grossa</li>
+        </ul>
+    </div>
+
+    <div id="3ano" class="conteudo-ano">
+        <div class="conteudo-header">
+            <h3>3º Ano - Educação Física</h3>
+            <button class="fechar-conteudo" onclick="fecharConteudo()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <p>Consolidação das habilidades motoras e introdução a práticas esportivas adaptadas.</p>
+        <ul>
+            <li>Iniciação esportiva lúdica</li>
+            <li>Jogos pré-desportivos</li>
+            <li>Atividades circenses básicas</li>
+            <li>Expressão corporal criativa</li>
+            <li>Cooperação em atividades em grupo</li>
+        </ul>
+    </div>
+
+    <div id="4ano" class="conteudo-ano">
+        <div class="conteudo-header">
+            <h3>4º Ano - Educação Física</h3>
+            <button class="fechar-conteudo" onclick="fecharConteudo()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <p>Aprofundamento das práticas corporais com maior complexidade técnica.</p>
+        <ul>
+            <li>Esportes coletivos adaptados</li>
+            <li>Danças folclóricas e regionais</li>
+            <li>Ginástica geral</li>
+            <li>Atividades de aventura na escola</li>
+            <li>Reflexão sobre hábitos saudáveis</li>
+        </ul>
+    </div>
+
+    <div id="5ano" class="conteudo-ano">
+        <div class="conteudo-header">
+            <h3>5º Ano - Educação Física</h3>
+            <button class="fechar-conteudo" onclick="fecharConteudo()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <p>Sistematização dos conhecimentos e preparação para os anos finais.</p>
+        <ul>
+            <li>Sistematização de regras esportivas</li>
+            <li>Práticas corporais de diferentes culturas</li>
+            <li>Organização de pequenos torneios</li>
+            <li>Reflexão sobre fair play</li>
+            <li>Autonomia nas práticas corporais</li>
+        </ul>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+
+    <script>
+        // Garante que o script só rode depois que a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+        
+            // =================================
+            // == JAVASCRIPT ATUALIZADO AQUI ==
+            // =================================
+            document.querySelectorAll('.ano-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+
+                    // Verifica se o link é para um pop-up (começa com #)
+                    if (href.startsWith('#')) {
+                        // Se for pop-up, previne o link e abre o pop-up
+                        e.preventDefault(); 
+                        const targetId = href.substring(1);
+                        
+                        document.querySelectorAll('.conteudo-ano').forEach(content => {
+                            content.style.display = 'none';
+                        });
+                        
+                        document.querySelector('.main-content').style.display = 'none';
+                        document.getElementById(targetId).style.display = 'block';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                    // Se NÃO começar com # (ex: "1ano.html"), 
+                    // o script não faz nada e deixa o navegador 
+                    // seguir o link para a nova página.
+                });
+            });
+
+            // --- SCRIPT MENU MOBILE (HAMBURGUER) ---
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+
+
+            // --- JAVASCRIPT PARA LIGHTBOX (Pop-up da Imagem) ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.querySelector('.lightbox-close');
+
+            document.querySelectorAll('.recurso-card a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    const imgSrc = this.getAttribute('href'); 
+                    lightboxImg.setAttribute('src', imgSrc); 
+                    lightbox.style.display = 'flex'; 
+                });
+            });
+
+            function fecharLightbox() {
+                lightbox.style.display = 'none';
+                lightboxImg.setAttribute('src', ''); 
+            }
+
+            lightboxClose.addEventListener('click', fecharLightbox);
+            
+            lightbox.addEventListener('click', function(e) {
+                if (e.target !== lightboxImg) {
+                    fecharLightbox();
+                }
+            });
+
+            
+            // --- JAVASCRIPT PARA AMPLIAR IMAGEM (Zoom no Card) ---
+            document.querySelectorAll('.recurso-card img').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation(); 
+                    this.classList.toggle('ampliada');
+                });
+            });
+
+
+            // --- SCRIPT DA TECLA 'ESC' (FECHA TUDO) ---
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (lightbox.style.display === 'flex') {
+                        fecharLightbox();
+                    } else if (document.querySelector('.conteudo-ano[style*="block"]')) {
+                        fecharConteudo();
+                    }
+                }
+            });
+            
+        }); // Fim do 'DOMContentLoaded'
+
+        // Função global para fechar o pop-up do ano
+        function fecharConteudo() {
+            document.querySelectorAll('.conteudo-ano').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.querySelector('.main-content').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    
+</body>
+</html>

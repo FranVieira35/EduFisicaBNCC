@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8º Ano - Anos Finais - BNCC</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS COMPLETO DA SUA PÁGINA "ANOS INICIAIS" */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Estilo para links no corpo do texto */
+        .link-texto {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* Efeito hover (mudar de cor ao passar o mouse) */
+        .link-texto:hover {
+            color: #ccd6f6;
+            text-decoration: underline;
+        }
+
+        /* Estilo para o ícone do YouTube */
+        .youtube-icon {
+            color: #ff0000;
+            font-size: 1.1em;
+        }
+
+        body {
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a.active {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* Layout da Página de Conteúdo */
+        .pagina-iniciais .main-content {
+            padding-top: 150px; 
+            padding-bottom: 50px;
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .pagina-iniciais .title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #e6f1ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .pagina-iniciais .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 60px;
+            color: #64ffda;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Botão Voltar */
+        .square-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .square-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 3.5rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .button-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e6f1ff;
+            text-align: center;
+        }
+
+        /* Container para os botões de navegação */
+        .navegacao-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .voltar-btn, .proximo-btn {
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+        }
+
+        .voltar-btn .button-icon, .proximo-btn .button-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .voltar-btn .button-text, .proximo-btn .button-text {
+            font-size: 1.1rem;
+        }
+
+        /* Container (para centralizar o conteúdo) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card de Informação (para o texto principal) */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: left; 
+        }
+
+        .info-card h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: left; 
+        }
+
+        .info-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-card p {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-card blockquote {
+            background: rgba(100, 255, 218, 0.05);
+            border-left: 4px solid #64ffda;
+            padding: 15px;
+            margin: 25px 0;
+            color: #ccd6f6;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* === NOVO CSS ADICIONADO PARA A LISTA === */
+        .info-card ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .info-card li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: #ccd6f6;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .info-card li:before {
+            content: "▶";
+            color: #64ffda;
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        /* === PLAYER DE VÍDEO INTERNO === */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-container {
+            width: 90%;
+            max-width: 900px;
+            background-color: #0a192f;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(10, 25, 47, 0.9);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        .video-title {
+            color: #64ffda;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #ccd6f6;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #64ffda;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            position: relative;
+        }
+
+        .video-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* === LISTA DE VÍDEOS === */
+        .video-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-thumbnail .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 0, 0, 0.8);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .video-item:hover .play-icon {
+            background-color: rgba(255, 0, 0, 1);
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-item-title {
+            color: #64ffda;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .video-item-duration {
+            color: #ccd6f6;
+            font-size: 0.8rem;
+        }
+
+        /* Menu Hamburguer (Mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+
+            .pagina-iniciais .main-content {
+                padding-top: 100px;
+            }
+
+            .pagina-iniciais .title {
+                font-size: 2.2rem;
+            }
+
+            .pagina-iniciais .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .square-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .button-icon {
+                font-size: 3rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .video-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .navegacao-container {
+                gap: 15px;
+            }
+            
+            .voltar-btn, .proximo-btn {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .video-container {
+                width: 95%;
+            }
+            
+            .navegacao-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="pagina-iniciais">
+    
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="main-content pagina-iniciais">
+        <h1 class="title">8º ANO</h1>
+        <h2 class="subtitle">Ensino Fundamental</h2>
+        
+        <div class="container">
+            
+            <div class="info-card">
+                <h2>Foco do 8º Ano</h2>
+                <div class="img" >
+                <img src="8ano.jpg" 
+                     alt="Imagem 8º Ano" 
+                     style="width:100%; height: auto; border-radius: 8px; margin-bottom: 25px; border: 1px solid #64ffda;">
+            </div>
+                <p>
+                    A Educação Física entra em uma fase de grande aprofundamento conceitual, técnico, tático e crítico. Os estudantes já possuem maturidade motora e cognitiva para analisar de forma mais elaborada as práticas corporais, comparar informações, tomar decisões estratégicas e compreender relações sociais, culturais e históricas envolvidas no movimento humano.
+                </p>
+                <p>
+                    É um período de <strong>consolidação da identidade</strong> e de <strong>aprofundamento crítico</strong>. Os estudantes, agora estão mais estáveis em relação às mudanças hormonais iniciais da adolescência, mas mergulhados em questões de autoafirmação, personalidade e posicionamento no mundo.
+                </p>
+                <p>
+                    A Educação Física, nesta fase, deve responder a essas demandas, tornando-se menos uma "aula de atividades" e mais um <strong>laboratório de experiências corporais e análise social</strong>.
+                </p>
+                <ul>
+                    <li>
+                       <strong>Estabilidade Corporal Relativa:</strong> O estirão inicial da puberdade já passou para a maioria, que agora está mais adaptada ao seu novo corpo. A coordenação motora retorna ao controle.
+                    </li>
+                    <li>
+                       <strong>Profundidade Cognitiva e Crítica:</strong> É o ápice da capacidade de abstração e crítica nos Anos Finais. Eles são capazes de analisar sistemas complexos, debater ética e entender contextos históricos e sociais.
+                    </li>
+                    <li>
+                       <strong>Definição de Interesses Pessoais:</strong> Começam a se identificar fortemente com certos estilos (esportes, música, artes) e a rejeitar outros. A pressão pelo grupo ainda é forte, mas a individualidade começa a falar mais alto.
+                    </li>
+                     <li>
+                       <strong>Questionamento da Utilidade Prática:</strong> "Por que preciso aprender isso?" é uma pergunta frequente e legítima. As aulas precisam ter um "porquê" claro.
+                    </li>
+                </ul>
+                <p>
+                    Objetivos Centrais: Especialização, Autogestão e Análise Social.
+                </p>
+                 <ul>
+                    <li>
+                       <strong>Oferecer Caminhos de Especialização Relativa:</strong> Permitir que os estudantes se aprofundem em modalidades de sua escolha, experimentando níveis mais altos de técnica e tática.
+                    </li>
+                    <li>
+                       <strong>Desenvolver a Autogestão Completa:</strong> Transferir para os estudantes a responsabilidade pelo planejamento, organização, execução e avaliação de projetos e eventos.
+                    </li>
+                    <li>
+                       <strong>Analisar a Cultura Corporal como Fenômeno Social:</strong> Investigar como os esportes e outras práticas corporais refletem e reforçam questões como desigualdade social, racismo, machismo e comercialização.
+                    </li>
+                    <li>
+                       <strong>Promover a Experimentação de Novas Possibilidades:</strong> Apresentar práticas corporais que possam ser incorporadas ao estilo de vida, transcendendo o ambiente escolar.
+                    </li>
+                </ul>
+
+                <p>
+                   Aqui, o conteúdo é organizado em <strong>projetos</strong> e <strong>unidades de investigação</strong>.
+                </p>
+                
+                <br>
+                <h3>Esportes: Análise Tática Aprofundada e Adaptação de Regras:</h3>
+                <ul>
+                    <li>
+                        <strong>Unidade de "Comissão Técnica":</strong> Os estudantes são divididos em grupos que assumem o papel de comissão técnica de um time. Eles analisam adversários (outros grupos), criam estratégias, definem escalações e fazem substituições táticas durante o jogo.
+                    </li>
+                    <li>
+                        <strong>Projeto de Modificação de Regras:</strong> Desafiar os estudantes a criarem uma nova modalidade ou modificar radicalmente as regras de um esporte existente para resolver um problema (tornar o jogo mais inclusivo para pessoas altas/baixas, ou mais dinâmico).
+                    </li>
+                </ul>
+           
+                <br>
+                <h3>Práticas Corporais de Aventura Urbanas:</h3>
+                <p><strong>Foco na Acessibilidade:</strong> Ensinar práticas que podem ser feitas na cidade, como:</p>
+                <ul>
+                    <li>
+                       Parkour/Free Running (adaptado e com máxima segurança).
+                    </li>
+                    <li>
+                       Street Workout/Calistenia: Uso de equipamentos de praças públicas para treino de força e resistência corporal.
+                    </li>
+                    <li>
+                       Skate ou Longboard (em ambientes controlados e com equipamentos de segurança).
+                    </li>
+                </ul>
+                
+                <br>
+                <h3>Ginástica de Academia e Fisiologia do Exercício:</h3>
+                <ul>
+                    <li>
+                       <strong>Abordagem "Ciência do Exercício":</strong> Ensinar os princípios básicos de treinamento (sobrecarga, especificidade, individualidade biológica).
+                    </li>
+                    <li>
+                       <strong>Criação de Planos de Treino Pessoais:</strong> Cada estudante cria e experimenta um plano de treino para um objetivo específico (melhorar a resistência para a corrida, ganhar força para escalada), entendendo a lógica por trás de cada exercício.
+                    </li>
+                </ul>
+                
+                <br>
+                <h3>Dança como Linguagem Artística e Política:</h3>
+                <p>Exploração de danças que carregam fortes mensagens sociais e identitárias, como danças afro-brasileiras, dança contemporânea que aborda temas como ansiedade, ou hip hop como expressão de resistência cultural.</p>
+                
+                <br>
+                <h3>Lutas: Filosofia e Aplicação:</h3>
+                <p>Estudo aprofundado de uma luta específica (Judô, Jiu-Jitsu, Karatê), focando em sua <strong>filosofia, código de conduta e aplicação para defesa pessoal e autocontrole</strong>.</p>
+
+                <br>
+                <h3>Resumindo...</h3>
+                <p>Aprofundamento técnico e tático nas diferentes modalidades esportivas.</p>
+
+                <ul>
+                    <li>
+                       Esportes de rede e parede
+                    </li>
+                    <li>
+                       Danças de salão e folclóricas
+                    </li>
+                    <li>
+                       Lutas internacionais
+                    </li>
+                    <li>
+                       Organização de eventos esportivos
+                    </li>
+                    <li>
+                       Reflexão sobre inclusão nas práticas esportivas
+                    </li>
+                </ul>
+                
+                <br>
+                <h3>Vídeos de Referência:</h3>
+
+                <!-- Lista de vídeos com player interno -->
+                <div class="video-list">
+                    <div class="video-item" data-video-id="yQ3T3Gm00qY" data-title="Atividades de Educação Física: Jogos e Brincadeiras, Atividades de Educação Fisica 9 ano">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/yQ3T3Gm00qY/mqdefault.jpg" alt="Thumbnail do vídeo">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-item-title">Atividades de Educação Física: Jogos e Brincadeiras, Atividades de Educação Fisica 9 ano</div>
+                            <div class="video-item-duration">Short</div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-video-id="uCwUNrYOKjU" data-title="Aprenda a fazer a movimentação 8">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/uCwUNrYOKjU/mqdefault.jpg" alt="Thumbnail do vídeo">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-item-title">Aprenda a fazer a movimentação 8</div>
+                            <div class="video-item-duration">Short</div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-video-id="v9MX9FCbE1A" data-title="Jogo para esporte de invasão">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/v9MX9FCbE1A/mqdefault.jpg" alt="Thumbnail do vídeo">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-item-title">Jogo para esporte de invasão</div>
+                            <div class="video-item-duration">Short</div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-video-id="pDcHvHjxKlk" data-title="Jogo de luta: Costa e empurra">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/pDcHvHjxKlk/mqdefault.jpg" alt="Thumbnail do vídeo">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-item-title">Jogo de luta: Costa e empurra</div>
+                            <div class="video-item-duration">Short</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Container para os botões de navegação -->
+            <div class="navegacao-container">
+                <a href="anos-finais.html" class="square-button voltar-btn">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <span class="button-text">Voltar</span>
+                </a>
+                
+                <a href="9ano.html" class="square-button proximo-btn">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <span class="button-text">Próximo Ano</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Modal do Player de Vídeo -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <div class="video-header">
+                <div class="video-title" id="videoModalTitle">Título do Vídeo</div>
+                <button class="close-btn" id="closeVideoModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-player">
+                <iframe id="videoPlayer" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Garante que o script só rode depois que a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+        
+            // --- SCRIPT MENU MOBILE (HAMBURGUER) ---
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+            
+            // --- PLAYER DE VÍDEO INTERNO ---
+            const videoModal = document.getElementById('videoModal');
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoModalTitle = document.getElementById('videoModalTitle');
+            const closeVideoModal = document.getElementById('closeVideoModal');
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            // Abrir modal de vídeo
+            videoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const videoTitle = this.getAttribute('data-title');
+                    
+                    videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    videoModalTitle.textContent = videoTitle;
+                    videoModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Impede rolagem do body
+                });
+            });
+            
+            // Fechar modal de vídeo
+            closeVideoModal.addEventListener('click', function() {
+                videoModal.classList.remove('active');
+                videoPlayer.src = '';
+                document.body.style.overflow = 'auto'; // Restaura rolagem do body
+            });
+            
+            // Fechar modal ao clicar fora do player
+            videoModal.addEventListener('click', function(e) {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove('active');
+                    videoPlayer.src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Fechar modal com a tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                    videoModal.classList.remove('active');
+                    videoPlayer.src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+        }); // Fim do 'DOMContentLoaded'
+    </script>
+    
+</body>
+</html>

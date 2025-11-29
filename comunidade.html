@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade - BNCC Educação Física</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS COMPLETO DA SUA PÁGINA "ANOS INICIAIS" */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+
+        /* Estilo para links no corpo do texto */
+.link-texto {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A fonte do seu projeto */
+    color: #64ffda; /* Cor de destaque para links */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/* Efeito hover (mudar de cor ao passar o mouse) */
+.link-texto:hover {
+    color: #ccd6f6; /* Cor mais clara no hover */
+    text-decoration: underline;
+}
+
+
+        body {
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a.active {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* Layout da Página de Conteúdo */
+        .pagina-iniciais .main-content {
+            padding-top: 150px; 
+            padding-bottom: 50px;
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .pagina-iniciais .title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #e6f1ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .pagina-iniciais .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 60px;
+            color: #64ffda;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Botão Voltar */
+        .square-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .square-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 3.5rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .button-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e6f1ff;
+            text-align: center;
+        }
+
+        .voltar-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .voltar-btn {
+            margin: 0 auto !important;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+        }
+
+        .voltar-btn .button-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .voltar-btn .button-text {
+            font-size: 1.1rem;
+        }
+
+        /* Container (para centralizar o conteúdo) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card de Informação (para o texto principal) */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: left; 
+        }
+
+        .info-card h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: left; 
+        }
+
+        .info-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-card p {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-card blockquote {
+            background: rgba(100, 255, 218, 0.05);
+            border-left: 4px solid #64ffda;
+            padding: 15px;
+            margin: 25px 0;
+            color: #ccd6f6;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* === NOVO CSS ADICIONADO PARA A LISTA === */
+        .info-card ul {
+            list-style-type: none; /* Remove bullets padrão */
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .info-card li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: #ccd6f6;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .info-card li:before {
+            content: "▶"; /* Mesmo marcador dos pop-ups */
+            color: #64ffda;
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 5px; /* Ajuste vertical */
+        }
+        /* === FIM DO NOVO CSS === */
+
+        /* Linha divisória */
+        hr.custom-divider {
+            border: none;
+            height: 1px;
+            background-color: rgba(100, 255, 218, 0.2);
+            margin: 30px 0;
+        }
+
+        /* Estilo para o container do Utterances */
+        .utterances {
+            max-width: 100% !important; /* Garante que ele se ajuste ao card */
+            margin-top: 20px;
+        }
+
+
+        /* Menu Hamburguer (Mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+
+            .pagina-iniciais .main-content {
+                padding-top: 100px;
+            }
+
+            .pagina-iniciais .title {
+                font-size: 2.2rem;
+            }
+
+            .pagina-iniciais .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .square-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .button-icon {
+                font-size: 3rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body class="pagina-iniciais">
+    
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="main-content pagina-iniciais">
+        <h1 class="title">COMUNIDADE</h1>
+        <h2 class="subtitle">Participe da Conversa</h2>
+        
+        <div class="container">
+            
+            <div class="info-card">
+                <h2>Deixe seu comentário! 💬📚💪</h2>
+                
+                <p>
+                    Sua opinião é muito importante para mim.😊 <br><br>Se você gostou do conteúdo, compartilhe aqui suas impressões, sugestões e ideias para aprimorar ainda mais este espaço.
+                </p>
+                <p>
+                    Também convidamos você a relatar suas experiências na área de Educação Física Escolar: práticas que deram certo, desafios, atividades criativas, projetos ou qualquer contribuição que possa enriquecer o trabalho de outros profissionais e estudantes.
+                </p>
+                <p>
+                    Sua participação ajuda a construir uma comunidade mais colaborativa e inspiradora. <br><br>Deixe seu comentário abaixo e vamos aprender juntos!
+                </p>
+
+                <hr class="custom-divider">
+
+                
+                <blockquote>
+                    <p>ESTE SITE FUTURAMENTE TERÁ UM ESPAÇO PARA COMENTÁRIOS!😊<strong></strong></p>
+                    <ul>
+
+
+                    </ul>
+                </blockquote>
+
+                <!-- === INÍCIO DO SCRIPT DE COMENTÁRIOS UTTERANCES === -->
+                <!--
+                    1. Troque o valor de 'repo' para o seu repositório.
+                    2. 'theme' está como 'github-dark' para combinar com o site.
+                    3. 'issue-term' "pathname" cria um tópico de issue para cada página.
+                -->
+                <script src="https://utteranc.es/client.js"
+                        repo="[SEU_USUARIO]/[SEU_REPOSITORIO]"
+                        issue-term="pathname"
+                        theme="github-dark"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+                <!-- === FIM DO SCRIPT DE COMENTÁRIOS UTTERANCES === -->
+
+
+            </div> 
+            
+            <div class="voltar-container">
+                <!-- Botão Voltar apontando para a página principal -->
+                <a href="index.html" class="square-button voltar-btn">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <span class="button-text">Voltar</span>
+                </a>
+            </div>
+
+        </div> 
+    </div> 
+    
+    <script>
+        // Garante que o script só rode depois que a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+        
+            // --- SCRIPT MENU MOBILE (HAMBURGUER) ---
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+            
+        }); // Fim do 'DOMContentLoaded'
+    </script>
+    
+</body>
+</html>

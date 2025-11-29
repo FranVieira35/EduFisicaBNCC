@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título atualizado para Anos Finais -->
+    <title>Anos Finais - BNCC Educação Física</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+
+        *img{
+        size: 200px
+}
+
+        body {
+            background-color: #0a192f;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a.active {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* Classe "pagina-iniciais" mantida para reutilizar o estilo */
+        .pagina-iniciais .main-content {
+            padding-top: 150px; 
+            padding-bottom: 50px;
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .pagina-iniciais .title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #e6f1ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .pagina-iniciais .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 60px;
+            color: #64ffda;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Botões Quadrados (Base para o botão Voltar) */
+        .square-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 15px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .square-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icon {
+            font-size: 3.5rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        .button-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e6f1ff;
+            text-align: center;
+        }
+
+        /* Botões dos Anos */
+        .anos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            /* max-width ajustado para 4 botões */
+            max-width: 800px; 
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .ano-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 12px;
+            padding: 25px 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .ano-button:hover {
+            background-color: rgba(100, 255, 218, 0.15);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .ano-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+
+        .ano-texto {
+            font-size: 1rem;
+            color: #e6f1ff;
+            font-weight: 500;
+        }
+
+        /* Container do botão voltar */
+        .voltar-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Ajuste de tamanho específico para o botão "Voltar" */
+        .voltar-btn {
+            margin: 0 auto !important;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+        }
+
+        .voltar-btn .button-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .voltar-btn .button-text {
+            font-size: 1.1rem;
+        }
+
+        /* ============================
+        == ESTILOS DO LIGHTBOX (MODAL DE IMAGEM) ==
+        ============================ */
+        .lightbox {
+            position: fixed;
+            z-index: 2000; /* Fica em cima de tudo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none; /* Começa escondido */
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            border: 3px solid #64ffda;
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        /* ============================
+        == FIM DOS ESTILOS LIGHTBOX ==
+        ============================ */
+
+
+        /* Container (para centralizar o conteúdo) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card de Informação (para o texto principal) */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: left; /* Garante que o texto no card não seja centralizado */
+        }
+
+        .info-card h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: left; /* Título do card à esquerda */
+        }
+
+        .info-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-card p {
+            color: #ccd6f6;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo para Citações (blockquote) */
+        .info-card blockquote {
+            background: rgba(100, 255, 218, 0.05);
+            border-left: 4px solid #64ffda;
+            padding: 15px;
+            margin: 25px 0;
+            color: #ccd6f6;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Estilo para a Caixa de Informação (Organização) */
+        .info-box {
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .info-box .info-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        /* =================================
+        == ESTILOS PARA IMAGENS ==
+        =================================
+        */
+        
+        /* Grid de Recursos */
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px auto; /* Centraliza o grid */
+            padding: 0 20px;
+            max-width: 900px; /* Alinha com os botões dos anos */
+            text-align: left;
+        }
+
+        /* Card de Recurso (para as imagens) */
+        .recurso-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-align: center; /* Centralizar o título e a imagem */
+        }
+
+        .recurso-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.2);
+        }
+        
+        .recurso-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Estilo da Imagem (estado normal) */
+        .recurso-card img {
+            width: 100%; /* Faz a imagem ser responsiva */
+            height: auto;
+            border-radius: 8px; /* Borda arredondada para a imagem */
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            opacity: 0.85;
+            transition: all 0.3s ease; /* Transição suave para a ampliação */
+            cursor: pointer; /* Adiciona cursor de clique */
+        }
+
+        .recurso-card a:hover img {
+            opacity: 1;
+        }
+
+        /* CSS para imagem ampliada (efeito de zoom) */
+        .recurso-card img.ampliada {
+            transform: scale(1.1); /* Aumenta a imagem em 10% */
+            z-index: 10;           /* Garante que fique acima de outros elementos */
+            position: relative;    /* Necessário para o z-index funcionar */
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.4); /* Sombra para destacar */
+            border-color: #64ffda; /* Borda destacada */
+        }
+        /* ===============================
+        == FIM DOS ESTILOS ==
+        =============================== */
+
+
+        /* Menu Hamburguer (Mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+
+            .pagina-iniciais .main-content {
+                padding-top: 100px;
+            }
+
+            .pagina-iniciais .title {
+                font-size: 2.2rem;
+            }
+
+            .pagina-iniciais .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .square-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .button-icon {
+                font-size: 3rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+
+            .anos-container {
+                /* Para 4 botões, 2 colunas fica perfeito em tablet */
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                max-width: 400px; /* Ajusta o max-width para 2 colunas */
+            }
+
+            .ano-button {
+                padding: 20px 10px;
+            }
+
+            .ano-numero {
+                font-size: 2rem;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            /* --- Ajuste Mobile para o novo grid --- */
+            .recursos-grid {
+                padding: 0; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .anos-container {
+                /* Em mobile, 2 colunas ainda pode funcionar bem */
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 100%; /* Ocupa a largura total */
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body class="pagina-iniciais">
+    
+    <header>
+        <nav>
+            <div class="logo">BNCC EDUCAÇÃO FÍSICA</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre o Site</a></li>
+                <li><a href="competencias.html">Competências e Habilidades</a></li>
+                <li><a href="recursos.html">Recursos Digitais</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Títulos e subtítulos atualizados -->
+    <div class="main-content">
+        <h1 class="title">ANOS FINAIS</h1>
+        <h2 class="subtitle">6º ao 9º Ano - Ensino Fundamental</h2>
+        
+        <div class="container">
+            
+            <!-- Conteúdo do info-card atualizado com o texto dos Anos Finais e citações em caixas -->
+            <div class="info-card">
+                <h2>Anos Finais do Ensino Fundamental</h2>
+                
+                <blockquote>
+                    "No Ensino Fundamental – Anos Finais, os estudantes se deparam com
+                    diversos docentes, o que torna mais complexas as interações e a sistemática
+                    de estudos. Ainda assim, os alunos nessa fase de escolarização
+                    têm maior capacidade de abstração e de acessar diferentes fontes de
+                    informação. Essas características permitem aos estudantes maior aprofundamento
+                    nos estudos das práticas corporais na escola." (BNCC, pág. 231)
+                </blockquote>
+
+                <p>
+                    A Educação Física nos Anos Finais do Ensino Fundamental, assume um papel decisivo na formação crítica, autônoma e consciente dos estudantes. Nessa fase, marcada por intensas transformações físicas, emocionais e sociais da adolescência, as práticas corporais deixam de ser apenas vivenciadas de maneira lúdica e passam a ser analisadas, compreendidas e contextualizadas culturalmente. 
+                </p>
+
+                <blockquote>
+                    Como destaca Soares, "as práticas corporais são fruto de processos históricos e culturais, e carregam significados e valores que devem ser tematizados na escola" (Soares, 2004).
+                </blockquote>
+
+                <p>
+                    A BNCC orienta que o ensino avance em profundidade, ampliando o repertório de práticas e estimulando o protagonismo dos estudantes na organização, reflexão e avaliação das atividades corporais.
+                </p>
+
+                <blockquote>
+                    Segundo o Coletivo de Autores, "a Educação Física deve tratar criticamente as práticas corporais, compreendendo-as como expressões da cultura corporal" (Coletivo de Autores, 1992). Isso reforça a ideia de que, nos Anos Finais, o foco vai além da execução e abrange reflexão, análise e crítica.
+                </blockquote>
+
+                <p>
+                    Os estudantes são convidados a explorar as práticas corporais dentro de seis grandes unidades temáticas: Jogos e Brincadeiras (6° e 7°), Esportes, Danças, Ginásticas, Lutas e Práticas Corporais de Aventura. Nessas práticas, eles passam a compreender regras com maior complexidade, sistemas táticos, princípios técnicos e estratégias que orientam o desempenho. O foco não é o rendimento esportivo, mas sim o entendimento crítico das práticas corporais, sua presença na sociedade e seus significados culturais, sociais, midiáticos e históricos. 
+                </p>
+
+                <p>
+                    A Educação Física também se torna um espaço importante de análise e questionamento. Os estudantes são estimulados a refletir sobre temas como padrões corporais, saúde, consumo, uso das mídias e influência das tecnologias no movimento. Eles aprendem a reconhecer que as práticas corporais não são neutras, mas carregam valores, identidades, ideologias e formas de expressão. Assim, desenvolvem uma postura crítica e são capazes de identificar situações de preconceito, violência, exclusão e desigualdade, promovendo o respeito e a inclusão nas aulas. 
+                </p>
+
+                <p>
+                    Outro aspecto essencial é o desenvolvimento da autonomia. A BNCC propõe que os estudantes avancem na capacidade de planejar, adaptar e avaliar práticas corporais, organizando eventos, arbitrando jogos, criando sequências coreográficas, elaborando treinos simples e compreendendo princípios de intensidade, esforço e segurança. Esse processo fortalece o protagonismo e a responsabilidade coletiva, estimulando tomadas de decisão, liderança e cooperação. 
+                </p>
+
+                <blockquote>
+                    Libâneo destaca que "o planejamento e a organização das ações pedagógicas são fundamentais para promover a autonomia intelectual e prática dos estudantes" (Libâneo, 1994).
+                </blockquote>
+
+                <p>
+                    Além disso, nos Anos Finais, a relação com a tecnologia se intensifica. Os estudantes podem utilizar vídeos, aplicativos, análises de movimento e recursos digitais para registrar, observar, comparar e aprimorar as práticas corporais. Isso amplia as possibilidades de aprendizagem e conecta a disciplina ao cotidiano dos adolescentes. 
+                </p>
+
+                <p>
+                    Ao final do 9º ano, espera-se que os estudantes tenham desenvolvido competências que articulam conhecimento, reflexão e ação: compreender a cultura corporal de movimento, participar de práticas diversas com autonomia, analisar criticamente os discursos ligados ao corpo e ao esporte, valorizar a diversidade cultural e atuar de maneira ética, solidária e participativa. Dessa forma, a Educação Física nos Anos Finais contribui para a formação integral do estudante, preparando-o tanto para o Ensino Médio quanto para a vida em sociedade.
+                </p>
+
+                <blockquote>
+                    Essa visão dialoga com Saviani, ao afirmar que "a escola deve formar sujeitos capazes de compreender e intervir na realidade de maneira consciente e crítica" (Saviani, 1983)
+                </blockquote>
+
+                <!-- info-box atualizado para Anos Finais -->
+                <div class="info-box">
+                    <h3 class="info-title">Organização das Habilidades</h3>
+                    <p class="text-content" style="text-align: center; margin-bottom: 0;">
+                        As habilidades de Educação Física para o Ensino Fundamental – Anos Finais, conforme estabelecido pela BNCC estão organizados em dois blocos: <strong>6° e 7° anos; 8° e 9° anos</strong>.
+                    </p>
+                    <p class="text-content" style="text-align: center; margin-bottom: 0;">
+                        Essas habilidades são estruturadas a partir dos objetos de conhecimento definidos em unidades temáticas, que abrangem os diferentes componentes da cultura corporal do movimento.
+                    </p>
+                </div>
+            </div> 
+            
+            <h2 class="subtitle" style="margin-top: 60px; margin-bottom: 40px;">Recursos Visuais</h2>
+            
+            <!-- Grid de Recursos/Imagens atualizado -->
+            <div class="recursos-grid">
+                
+                <div class="recurso-card">
+                    <h3>Unidades Temáticas</h3>
+                    <a href="AnosFinais1.jpg" target="_blank">
+                        <img src="AnosFinais1.jpg" alt="Unidades Temáticas - Anos Finais">
+                    </a>
+                </div>
+                
+                <div class="recurso-card">
+                    <h3>Habilidades 6º e 7º Ano</h3>
+                    <a href="AnosFinais2.jpg" target="_blank">
+                        <img src="AnosFinais2.jpg" alt="Habilidades 6º e 7º Ano">
+                    </a>
+                </div>
+
+                <div class="recurso-card">
+                    <h3>Habilidades 8º e 9º Ano</h3>
+                    <a href="AnosFinais3.jpg" target="_blank">
+                        <img src="AnosFinais3.jpg" alt="Habilidades 8º e 9º Ano">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Container de botões atualizado para 6º, 7º, 8º e 9º ano -->
+            <div class="anos-container" id="botoes-anos">
+                <a href="6ano.html" class="ano-button">
+                    <div class="ano-numero">6º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                
+                <a href="7ano.html" class="ano-button">
+                    <div class="ano-numero">7º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                <a href="8ano.html" class="ano-button">
+                    <div class="ano-numero">8º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+                <a href="9ano.html" class="ano-button">
+                    <div class="ano-numero">9º</div>
+                    <div class="ano-texto">Ano</div>
+                </a>
+            </div>
+
+            <!-- Botão Voltar (mantido) -->
+            <div class="voltar-container">
+                <a href="index.html" class="square-button voltar-btn">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <span class="button-text">Voltar</span>
+                </a>
+            </div>
+
+        </div> 
+    </div> 
+
+    <!-- Pop-ups dos anos (removidos pois os botões agora levam a páginas separadas) -->
+
+    <!-- Lightbox para imagens (mantido) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+
+    <script>
+        // Garante que o script só rode depois que a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+        
+            // --- SCRIPT MENU MOBILE (HAMBURGUER) ---
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+
+            // --- JAVASCRIPT PARA LIGHTBOX (Pop-up da Imagem) ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.querySelector('.lightbox-close');
+
+            document.querySelectorAll('.recurso-card a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Impede a navegação padrão do link
+                    const imgSrc = this.getAttribute('href'); // Pega o caminho da imagem
+                    lightboxImg.setAttribute('src', imgSrc); // Coloca a imagem no modal
+                    lightbox.style.display = 'flex'; // Mostra o modal
+                });
+            });
+
+            // Função para fechar o lightbox
+            function fecharLightbox() {
+                lightbox.style.display = 'none';
+                lightboxImg.setAttribute('src', ''); // Limpa a imagem
+            }
+
+            // Event listener para o botão de fechar
+            lightboxClose.addEventListener('click', fecharLightbox);
+            
+            // Event listener para fechar clicando fora da imagem
+            lightbox.addEventListener('click', function(e) {
+                if (e.target !== lightboxImg) {
+                    fecharLightbox();
+                }
+            });
+
+            
+            // --- JAVASCRIPT PARA AMPLIAR IMAGEM (Zoom no Card) ---
+            // Isso permite clicar na imagem para dar um "zoom" nela
+            document.querySelectorAll('.recurso-card img').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Impede que o clique feche o lightbox imediatamente
+                    this.classList.toggle('ampliada');
+                });
+            });
+
+
+            // --- SCRIPT DA TECLA 'ESC' (FECHA LIGHTBOX) ---
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (lightbox.style.display === 'flex') {
+                        fecharLightbox();
+                    }
+                }
+            });
+            
+            // O script de pop-up dos anos foi removido pois não é mais necessário
+            
+        }); // Fim do 'DOMContentLoaded'
+    </script>
+    
+</body>
+</html>
